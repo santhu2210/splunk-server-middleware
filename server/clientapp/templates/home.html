@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Splunk Handshake{% endblock %}
+
+{% block body_class %}{% endblock body_class %}
+
+{% block content %}
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+      <!--	<span class="login100-form-title-1">
+          Sign In
+        </span> -->
+      </div>
+
+      <form class="login100-form validate-form" action="{% url 'clientapp:makerequest' %}" method="post" autocomplete="on">
+        {% csrf_token %}
+        <div class="wrap-input100 validate-input m-b-12" data-validate="Ip address is required">
+          <span class="label-input100">Server </span>
+          <input class="input100" type="text" name="serverip" placeholder="Enter Ip address">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-12" data-validate="Username is required">
+          <span class="label-input100">Username</span>
+          <input class="input100" type="text" name="username" placeholder="Enter username">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+          <span class="label-input100">Password</span>
+          <input class="input100" type="password" name="passkey" placeholder="Enter password">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-12" data-validate="Queryword is required">
+          <span class="label-input100">Keyword</span>
+          <input class="input100" type="text" name="keyword" placeholder="Enter a search query">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-12 date form_datetime" data-validate="Time range is required">
+          <span class="label-input100">Time_range (earliest) </span>
+        <!--	<input class="input100" type="text" name="username" placeholder="Enter time range"> -->
+          <!-- <input class="input100" type="date" id="eventday" name="eventday"> -->
+          <input class="input100" type="text" id="eventday" name="eventday" readonly>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-12" data-validate="Email is required">
+          <span class="label-input100">Email</span>
+          <input class="input100" type="email" name="email" placeholder="Enter the Email">
+          <span class="focus-input100"></span>
+        </div>
+      <!--	<div class="flex-sb-m w-full p-b-30">
+          <div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+              Remember me
+            </label>
+          </div>
+
+          <div>
+            <a href="#" class="txt1">
+              Forgot Password?
+            </a>
+          </div>
+        </div>  -->
+
+        <div class="container-login100-form-btn">
+          <input type="submit" class="login100-form-btn" value="Process">
+        </div>
+
+        {% if method == 'POST' %}
+          <div class="input100 m-b-18">
+              <h5 class="text-danger"> {{eve_msg}}</h5>
+          </div>
+        {% endif %}
+
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block endjqueryscript %}
+<script src="{% static 'assets/js/main.js' %}"></script>
+{% endblock %}

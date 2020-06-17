@@ -1,0 +1,48 @@
+<!-- templates/base.html -->
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  	<link rel="icon" type="image/png"  href="{% static 'images/icons/favicon.ico' %}" />
+  	<link rel="stylesheet" type="text/css"  href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/css-hamburgers/hamburgers.min.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animsition/css/animsition.min.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/select2/select2.min.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/daterangepicker/daterangepicker.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/util.css' %}" />
+  	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}" />
+  <!--===============================================================================================-->
+  	<script src="{% static 'assets/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/animsition/js/animsition.min.js' %}"></script>
+  	<script src="{% static 'assets/vendor/bootstrap/js/popper.js' %}"></script>
+  	<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  	<script src="{% static 'assets/vendor/select2/select2.min.js' %}"></script>
+  	<script src="{% static 'assets/vendor/daterangepicker/moment.min.js' %}"></script>
+  	<script src="{% static 'assets/vendor/daterangepicker/daterangepicker.js' %}"></script>
+  	<script src="{% static 'assets/vendor/countdowntime/countdowntime.js' %}"></script>
+
+
+  {% block jqueryscript %}{% endblock %}
+
+  <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body class="{% block body_class %} {% endblock body_class %}">
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+{% block endjqueryscript %}{% endblock %}
+
+</html>
